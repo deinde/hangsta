@@ -1,7 +1,23 @@
-<h1>Hello my name is <%= @user.username %></h1>
-<%  %>
-<% @user.events.each do |u| %>
-	<%= image_tag u.image.url(:thumb) %>
-	<%= u.title %>
-	<%= u.body %>
-<% end %>
+<div id = "UserProfile" class="container-fluid">
+	<h5 id="name"><%= @user.username %></h5>
+	<div id= 'ProPic' class="col-md-4"> 
+		<p><%= image_tag @user.avatar.url(:medium) %></p>
+	</div>
+	<div id="AboutMe">
+	<h3>
+		About Me
+	</h3>
+	</div>
+
+</div>
+</br>
+
+<div class="container-fluid">
+	<div class="col-md-12">
+		<% @user.events.each do |u| %>
+			<%= image_tag u.image.url(:thumb) %>
+			<%= u.title %>
+			<%= u.body %>
+		<% end %>
+	</div>	
+</div>
