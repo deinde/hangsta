@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :newest_first, -> { order("users.created_at DESC")}
 end
