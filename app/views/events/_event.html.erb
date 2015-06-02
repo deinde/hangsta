@@ -7,7 +7,7 @@
 	<br/>
 	
 	<p id="time"><%= event.created_at.strftime("%B %d, %Y") %></p>
-	<p id="name">@ <%= link_to event.user.username, user_path(event.user.username) %></p>
+	<p id="name">Created by <%= link_to event.user.username, profile_path(event.user.username) %></p>
 	<% if current_user and current_user == event.user %>
 		<%= link_to 'X', event, method: :delete, data: { remote: true, deletable: true } %>
 		<%= link_to 'edit', edit_event_path(event) %>
