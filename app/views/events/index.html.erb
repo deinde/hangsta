@@ -1,11 +1,15 @@
 <div id="posts-containter">
 	<p>
-		<% @users.each do |user|%>
-			<%= image_tag user.avatar.url(:thumb)%>
-			<%= user.username %>:
-			<%= user.events.last.title %> <br> <br>
-		<% end %>
-	</p>
+		<% @events.each do |event| %>
+			<%= image_tag event.user.avatar.url(:thumb)%>
+			<%= event.user.username %>
+			<%= event.title %>
+			<br>
+			<br>
+		<% end %> 
+	</p> 
+
+
 <!-- <%= render @events %>  -->
 
 </div
