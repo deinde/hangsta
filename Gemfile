@@ -11,6 +11,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'paperclip', '~> 4.2.1'
 
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
