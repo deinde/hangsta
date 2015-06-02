@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :events
+
   
 
   devise_for :users
@@ -8,9 +9,12 @@ Rails.application.routes.draw do
   end
 
 
+  resources :users, except: [:show]
 
   get 'welcome/index' => 'welcome#index'
-  get 'users/:username', to: 'users#show', as: 'user'
+
+
+  get 'users/:username', to: 'users#show', as: 'profile'
   
   
 
