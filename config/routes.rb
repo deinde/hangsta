@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-
+  resources :events
   devise_for :users, :controllers => { :registrations => "registrations" }
   devise_scope :user do 
     root to: 'devise/sessions#new'
   end
 
   get 'welcome/index' => 'welcome#index'
-
-  resources :events
+  get 'users/:username', to: 'users#show', as: 'user'
+  
+  
 
 
 

@@ -1,2 +1,11 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div id="posts-containter">
+	<h1>Create an Event</h1>
+	<%= form_for Event.new do |f| %>
+		<%= f.text_field :title, placeholder:"Event Name" %>
+		<%= f.text_field :body, placeholder: "Event Info" %>
+		<%= f.datetime_field :date, placeholder: "Date" %>
+		<%= f.submit "Post Event" %>
+	<% end %> 
+	<h1>Recent Events</h1>
+	<%= render @events %>
+</div>
