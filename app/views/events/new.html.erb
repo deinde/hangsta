@@ -1,5 +1,6 @@
 <h1>Create an Event</h1>
 	<%= form_for Event.new do |f| %>
+        <%= f.file_field :image, placeholder: "Event Image" %>
 		<%= f.text_field :title, placeholder:"Event Name" %>
 		<%= f.text_field :body, placeholder: "Event Info" %>
 		<%= f.datetime_field :date, placeholder: "Date" %>
