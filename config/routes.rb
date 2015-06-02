@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   resources :events
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  
+
+  devise_for :users
   devise_scope :user do 
-    root to: 'devise/sessions#new'
+    root to: 'devise/sessions#new'     # redirecting the root page to devise page
   end
+
+
 
   get 'welcome/index' => 'welcome#index'
   get 'users/:username', to: 'users#show', as: 'user'
