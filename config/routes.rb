@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :events
+  get 'users/:username', to: 'users#show', as: 'user'
   root 'welcome#index'
 
 
