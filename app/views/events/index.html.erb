@@ -1,4 +1,10 @@
 <div id="posts-containter">
 	<h1>Recent Events</h1>
-	<%= render @events %>
+	<p><% @users.each do |user| %>
+		<%= image_tag user.avatar.url(:thumb) %>
+		<%= user.username %>
+		<% end %>
+	</p>
+
+	<!-- <%= render @events %> -->
 </div>

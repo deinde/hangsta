@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    @users = User.all.newest_first
   end
 
   def show
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:body, :title, :date, :user_id).merge(user: current_user)
+    params.require(:event).permit(:body, :title, :date).merge(user: current_user)
   end
 
 end
