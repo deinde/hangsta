@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all.newest_first
-    @users = User.all
   end
 
   def show

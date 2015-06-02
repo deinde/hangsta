@@ -1,9 +1,10 @@
 <div id="posts-containter">
+	
 	<p>
 		<% @events.each do |event| %>
 			<%= image_tag event.user.avatar.url(:thumb)%>
-			<%= event.user.username %>
-			<%= event.title %>
+			<%= event.user.username %>:
+			<%= link_to event.title, event_path(event.id) %>
 			<br>
 			<br>
 		<% end %> 
