@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	font-family: Arial;
+	font-size: 18px;
+	background-color: purple;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: .15em 1em;
+	background-color: white;
+	border-bottom: 1px solid #68D1FF;
+
+}
+
+header nav a{
+	text-decoration: none;
+	color: purple;
+	padding: .15em 1em;
+	margin-left: 0.5em;
+}
+
+header nav a:hover {
+	background-color: yellow;
+	border-radius: 50%;
+}
+
+nav ul li{
+	display: inline;
+}
+main{
+	margin: 100px auto;
+	width: 100%:;
+	padding: 2em;
+	background-color: white;
+	border-radius: 2px 12px;
+}
+
+footer{
+	text-align: center;
+	color:white;
+	margin-top: -2em;
+	padding: -2.5em 0em;
+	list-style-type: none;
+}
+
+#notice{
+	color: yellow;
+}
+
+
+#posts_index{
+	border: 1px solid purple;
+	margin-left: -3em;
+	width: 1000px;
+
+}
+
+#posts_index li{
+	color: purple;
+	border-collapse: collapse;
+	border: 1px solid purple;
+	list-style-type: none;
+	padding: 0.50em 0.50em;
+	float:left;
+}
+
+@media all and (max-width: 500px){
+	body {
+	font-family: Arial;
+	font-size: 1em;
+	background-color: purple;
+
+	}
+	header{
+		width: 100%;
+		padding: .15em 1em;
+		background-color: white;
+		border-bottom: 1px solid #68D1FF;
+
+	}
+
+	header nav a{
+		text-decoration: none;
+		color: purple;
+		padding: .15em 1em;
+		margin-left: 0.5em;
+	}
+
+	header nav a:hover {
+		background-color: yellow;
+		border-radius: 50%;
+	}
+
+	nav ul li{
+		display: inline;
+
+	} 
+}

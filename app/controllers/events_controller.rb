@@ -14,10 +14,13 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       flash[:notice] = "Posted"
+      redirect_to(events_path)
     else
       flash[:alert] = "Problem with post"
       render :new
+
     end
+
   end
 
   def update

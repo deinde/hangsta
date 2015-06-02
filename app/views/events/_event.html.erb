@@ -1,0 +1,18 @@
+<div class="event">
+	<ul id="event_index">
+		<li>Event: <%= event.title %></li>
+		<li>About: <%= event.body %></li>
+		<li>Date: <%= event.date %></li>
+	</ul>
+	<br/>
+	
+	<p id="time"><%= event.created_at.strftime("%B %d, %Y") %></p>
+	<p id="name">@ <%= link_to event.user.username, user_path(event.user.username) %></p>
+	<% if current_user and current_user == event.user %>
+		<%= link_to 'X', event, method: :delete, data: { remote: true, deletable: true } %>
+		<%= link_to 'edit', edit_event_path(event) %>
+	<% elsif current_admin %>
+		<%= link_to 'delete', event, method: :delete %>
+		<%= link_to 'edit', edit_event_path(event) %>
+	<% end %>
+</div>
