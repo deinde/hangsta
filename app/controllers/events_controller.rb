@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Events.all
+    @events = Event.all
   end
 
   def show
@@ -14,7 +14,6 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       flash[:notice] = "Posted"
-      end
     else
       flash[:alert] = "Problem with post"
       render :new
@@ -22,18 +21,29 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      flash[:notice] = "Post updated"
+      redirect_to events_path
+    else
+      flash[:alert] = "Problem"
+      redirect_to events_path
+    end
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:body, :title, :date).merge(:current_user)
+    params.require(:event).permit(:body, :title, :date, :user_id).merge(user: current_user)
   end
 
 end
