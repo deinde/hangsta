@@ -1,2 +1,17 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1><%= @event.user.username.capitalize %>'s Event</h1>
+<div>
+	<%= @event.title %> <br> <br>
+</div>
+
+<div>
+	<p><%= image_tag @event.image.url(:medium) %></p>
+	<p><%= @event.body %></p>
+	<p><%= @event.date %></p>
+</div>
+
+<hr>
+
+<div>
+ 	<p><%= image_tag @event.user.avatar.url(:thumb) %></p>
+ 	<p><%= @event.user.username.capitalize%></p>
+</div>
