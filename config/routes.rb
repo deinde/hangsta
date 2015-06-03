@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:show]
 
-  get 'welcome/index' => 'welcome#index'
+  get 'welcome/index', to: 'welcome#index'
 
 
   get 'users/:username', to: 'users#show', as: 'profile'

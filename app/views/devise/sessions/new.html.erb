@@ -1,5 +1,8 @@
-<h2>Log in</h2>
 
+
+
+<div class="jumbotron col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <h2 id="h2">Sign in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -23,4 +26,11 @@
   </div>
 <% end %>
 
+</div>
+<video autoplay loop poster="polina.jpg" id="bgvid">
+<source src="assets/video/javajam.webm" type="video/webm">
+<source src="polina.mp4" type="video/mp4">
+</video>
+
 <%= render "devise/shared/links" %>
+<%=yield%>

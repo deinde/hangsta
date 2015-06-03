@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=false' %>
 </head>
 <body>
 	<header>
@@ -37,9 +38,10 @@
 </nav>
 </header>
 
-<main class="container">
-	<p id="notice"><%= flash[:notice] if flash[:notice] %></p>
-	<p id="alert"><%= flash[:alert] if flash[:alert] %></p>
+
+<main class="container-fluid main">
+	<span id="notice"><%= flash[:notice] if flash[:notice] %></span>
+	<span id="alert"><%= flash[:alert] if flash[:alert] %></span>
 
 <%= yield %>
 </main>
