@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :events
 
-  
+  resources :relationships, only: [:create, :destroy]
 
   devise_for :users
   devise_scope :user do 
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 
   get 'users/:username', to: 'users#show', as: 'profile'
+
   
   
 

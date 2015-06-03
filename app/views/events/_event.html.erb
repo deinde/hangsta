@@ -1,5 +1,6 @@
 <div class="event">
 	<ul id="event_index">
+		<p><%= image_tag event.image.url(:thumb) %></p>
 		<li>Event: <%= event.title %></li>
 		<li>About: <%= event.body %></li>
 		<li>Date: <%= event.date %></li>
@@ -11,7 +12,7 @@
 	<% if current_user and current_user == event.user %>
 		<%= link_to 'X', event, method: :delete, data: { remote: true, deletable: true } %>
 		<%= link_to 'edit', edit_event_path(event) %>
-	<% elsif current_admin %>
+	<% elsif current_user %>
 		<%= link_to 'delete', event, method: :delete %>
 		<%= link_to 'edit', edit_event_path(event) %>
 	<% end %>

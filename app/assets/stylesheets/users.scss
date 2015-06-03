@@ -1,0 +1,24 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#UserProfile {
+	border: 1px solid black;
+
+}
+
+#ProPic{
+		padding: 1em 1em;
+		float: left;
+}
+
+#AboutMe{
+	float: left;
+	margin-left: 10em;
+}
+
+#name{
+	padding: 0.25em 0.5em;
+	float: right;
+}
+

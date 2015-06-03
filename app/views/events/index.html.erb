@@ -1,4 +1,16 @@
 <div id="posts-containter">
-	<h1>Recent Events</h1>
-	<%= render @events %>
-</div>
+
+	
+	<p>
+		<% @events.each do |event| %>
+			<%= image_tag event.user.avatar.url(:thumb)%>
+			<%= event.user.username %>:
+			<%= link_to event.title, event_path(event.id) %>
+			<br>
+			<br>
+		<% end %> 
+	</p> 
+
+
+<!-- <%= render @events %>  -->
+</div
