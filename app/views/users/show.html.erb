@@ -1,12 +1,17 @@
-<div id = "UserProfile" class="container-fluid">
+<div id="UserProfile" class="container-fluid">
 	<h5 id="name"><%= @user.username %></h5>
 	<div id= 'ProPic' class="col-md-4"> 
 		<p><%= image_tag @user.avatar.url(:medium) %></p>
 	</div>
 	<div id="AboutMe">
-	<h3>
-		About Me
-	</h3>
+		<h3>About Me</h3>
+		<p><%= @user.bio %></p>
+		<% if current_user %>
+			<%= link_to "Edit Profile", edit_user_registration_path %>
+		<% end %>
+
+		
+
 	</div>
 
 </div>
