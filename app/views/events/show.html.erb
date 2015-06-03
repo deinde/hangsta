@@ -9,6 +9,7 @@
 	<p><%= image_tag @event.image.url(:medium) %></p>
 	<p><%= @event.body %></p>
 	<p><%= @event.date %></p>
+	<p>This event has <%= @event.followers.count %> people participating</p>
 </div>
 
 <hr>
