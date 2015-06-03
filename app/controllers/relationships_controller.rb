@@ -11,4 +11,5 @@ class RelationshipsController < ApplicationController
 		current_user.unfollow(event)
 		redirect_to event
 	end
+	
 end

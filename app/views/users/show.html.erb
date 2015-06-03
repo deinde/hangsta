@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
 	<div class="col-md-12">
-		<% @user.events.each do |u| %>
+		<% @user.events.newest_first.each do |u| %>
 			<%= image_tag u.image.url(:thumb) %>
 			<%= u.title %>
 			<%= u.body %>

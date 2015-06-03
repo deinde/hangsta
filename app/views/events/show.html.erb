@@ -1,15 +1,28 @@
 <h1><%= @event.user.username.capitalize %>'s Event</h1>
 <div>
-	<%= @event.title %> <br> <br>
+	<p><%= @event.title %></p> <br>
 </div>
 
-<p>Hi, you are <%= @user.username%></p>
 
 <div>
 	<p><%= image_tag @event.image.url(:medium) %></p>
-	<p><%= @event.body %></p>
-	<p><%= @event.date %></p>
-	<p>This event has <%= @event.followers.count %> people participating</p>
+	<p> Description: <%= @event.body %></p>
+	<p> Event Date: <%= @event.date %></p>
+	<p>This event has <%= @event.followers.count + 1 %> people participating</p>
+</div>
+
+<div>
+	<p><% if @user.following?(@event) %>
+		<%= form_for(@user.active_relationships.find_by(followed_id: @event.id), html: {method: :delete}) do |f| %>
+			<%= f.submit "Cancle" %>
+ 			<% end %>
+ 	   	<% else %>
+ 	   		<%=  form_for(@user.active_relationships.build) do |f|  %>
+ 			<div><%= hidden_field_tag :followed_id, @event.id %></div>
+ 			<%= f.submit "Join!" %>
+ 			<% end %>
+ 		<% end %>
+ 	 </p>
 </div>
 
 <hr>
@@ -17,15 +30,5 @@
 <div>
  	<p><%= image_tag @event.user.avatar.url(:thumb) %></p>
  	<p><%= @event.user.username.capitalize%></p>
- 	<p><% if @user.following?(@event) %>
- 		<%= form_for(@user.active_relationships.find_by(followed_id: @event.id), html: {method: :delete}) do |f| %>
- 			<%= f.submit "Cancle" %>
- 		<% end %>
- 	   <% else %>
- 	   	<%=  form_for(@user.active_relationships.build) do |f|  %>
- 			<div><%= hidden_field_tag :followed_id, @event.id %></div>
- 			<%= f.submit "Join!" %>
- 		<% end %>
- 	 </p>
- 	   <% end %>
+ 	
 </div>
