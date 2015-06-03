@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=false' %>
 </head>
 <body>
 	<header>
@@ -23,7 +24,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
             	<% if current_user %>
-            	<li><%= link_to "Users", users_path %></li>
+            	<li><%= link_to "Profile", profile_path(current_user.username) %></li>
             	<li><%= link_to "Events", events_path %></li>
             	<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             	<li><%= link_to 'Create Event', new_event_path %></li>
@@ -37,9 +38,10 @@
 </nav>
 </header>
 
-<main class="container">
-	<p id="notice"><%= flash[:notice] if flash[:notice] %></p>
-	<p id="alert"><%= flash[:alert] if flash[:alert] %></p>
+
+<main class="container-fluid main">
+	<span id="notice"><%= flash[:notice] if flash[:notice] %></span>
+	<span id="alert"><%= flash[:alert] if flash[:alert] %></span>
 
 <%= yield %>
 </main>
