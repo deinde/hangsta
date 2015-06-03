@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :index] 
 
 	def show
-		
+		# @about = About.new
 	end
 
 	def index
