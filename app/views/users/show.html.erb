@@ -4,9 +4,17 @@
 		<p><%= image_tag @user.avatar.url(:medium) %></p>
 	</div>
 	<div id="AboutMe">
-	<h3>
-		About Me
-	</h3>
+		<h3>
+			About Me
+		</h3>
+	</div>
+
+	<div>
+		<p>
+			<% if @user != current_user %>
+			<%= link_to "Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => @user.id %>
+			<% end %>
+		</p>
 	</div>
 
 </div>
