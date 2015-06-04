@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #####creating chat functionality between users ##########
-  has_many :conversations, foreign_key: "sender_id"
 
   scope :newest_first, -> { order("users.created_at DESC")}
 
