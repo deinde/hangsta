@@ -9,7 +9,8 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<nav class="navbar navbar navbar-static-top" role="navigation"> 
+    <a class="navbar-brand" href="#"><img class="img-responsive"src="/assets/hangsta.gif" alt=""></a>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -33,6 +34,13 @@
             	<li><%= link_to "Login", new_user_session_path %></li>
               <% end %>
             </ul>
+
+            <% if flash[:notice] %>
+              <p id="notice1"><%= flash[:notice] if flash[:notice] %></p>
+            <% end %>
+            <% if flash[:alert] %>
+              <p id="alert1"><%= flash[:alert] if flash[:alert] %></p>
+            <% end %>
         </div>
     </div>
 </nav>
@@ -40,9 +48,6 @@
 
 
 <main class="container-fluid main">
-	<span id="notice"><%= flash[:notice] if flash[:notice] %></span>
-	<span id="alert"><%= flash[:alert] if flash[:alert] %></span>
-
 <%= yield %>
 </main>
 

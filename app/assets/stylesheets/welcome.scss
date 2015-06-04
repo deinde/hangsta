@@ -4,6 +4,7 @@
     height: 400px;
     background-size: cover;
     background-color: red;
+    background-color: rgba(224, 224, 224, 0.5);
     
 }
 
@@ -95,7 +96,7 @@ padding-bottom: 50%;
   background-size:cover;
 }
 .welcome-about{
-	background-color:yellow;
+	
 	height:500px;
 	h1{
 		margin-left:100px;
@@ -193,26 +194,26 @@ padding-bottom: 50%;
 
 
   /////////////video////////////////////
-// video#bgvid {
-// position: fixed;
-// top: 50%;
-// left: 50%;
-// min-width: 100%;
-// min-height: 100%;
-// width: auto;
-// height: auto;
-// z-index: -100;
-// -webkit-transform: translateX(-50%) translateY(-50%);
-// transform: translateX(-50%) translateY(-50%);
+video#bgvid {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
 // background: url(polina.jpg) no-repeat;
-// background-size: cover;
-// }
+background-size: cover;
+}
 
 
 form#new_user {
   width:33%;
   margin: 0 auto;
-  background: yellow;
+
   radious: 10px;
   border-radius: 19px;
   padding: 43px;
@@ -230,13 +231,29 @@ h2#h2{
  // input, button, select, textarea {
 
     form#new_user {
-      width:50%;
-      background: green;
+      width:40%;
+      
       
     }
 
   // }
 }
+
+@media all and (max-width: 641px){
+
+   
+
+    form#new_user {
+      width:75%;
+      background-color: rgba(224, 224, 224, 0.5)
+      
+    }
+
+
+}
+
+
+
 
 input, button, select, textarea {
   font-family: inherit;
@@ -245,13 +262,26 @@ input, button, select, textarea {
   width: 95%;
 }
 
-// @media all and (max-width: 320px){
+@media all and (max-width: 430px){
 
 
-// }
+    form#new_user {
+      width:85%;
+      
+      
+      
+    }
+
+
+}
 
 
 
+
+
+.new_user {
+  background-color: rgba(224, 224, 224, 0.5);
+}
 // @media all and (max-width: 481px){
 
 // input, button, select, textarea {
@@ -261,27 +291,48 @@ input, button, select, textarea {
 
 // }
 
-// @media all and (max-width: 641px){
-
-//    input, button, select, textarea {
-
-//     form#new_user {
-//       width:70%;
-      
-//     }
 
 // }
-// }
 
 
 
+////// flash notice //////
+#notice1 {
+  float: right;
+  color:#fff;
+}
 
+#alert1 {
+  float: right;
+  color:#fff;
+}
 
+.logo{
+   display: block; margin-left: auto; margin-right: auto;
+}
+h1.text-center {
+  padding-top: 71px;
+  color: white;
+}
+h2.text-center {
+  padding-top: 20px;
+  color: white;
+}
 
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  color: #fff;
+}
 
-
-
-
+.navbar-brand {
+  float: left;
+  padding: 2px 15px;
+  font-size: 18px;
+  line-height: 40px;
+  height: 0px;
+}
 
 
 
