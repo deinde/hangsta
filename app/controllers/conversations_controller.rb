@@ -1,31 +1,46 @@
 class ConversationsController < ApplicationController
-	before_filter :authenticate_user!
-	layout false    
+  before_action :authenticate_user!
+ 
+  def new
+  end
 
-	def create
-		if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-			@conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
-		else
-			@conversation = Conversation.create!(conversation_params)
-		end
-			render json: { conversation_id: @conversation.id }    #returns a json response with the id of the conversation.
-	end
+  def create
+    recipients = User.where(id: conversation_params[:recipients])
+    conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
+    flash[:success] = "Your message was successfully sent!"
+    redirect_to conversation_path(conversation)
+  end
+ 
+  def show
+    @receipts = conversation.receipts_for(current_user)
+    # mark conversation as read
+    conversation.mark_as_read(current_user)
+  end
+ 	
+  def reply
+    current_user.reply_to_conversation(conversation, message_params[:body])
+    flash[:notice] = "Your reply message was successfully sent!"
+    redirect_to conversation_path(conversation)
+  end
 
-	def show
-		@conversation = Conversation.find(params[:id])    #the id is sent from javascript code in chat.js
-		@reciever = interlocutor(@conversation)
-		@messages = @conversation.messages
-		@message = Message.new
-	end
+  def trash
+    conversation.move_to_trash(current_user)
+    redirect_to mailbox_inbox_path
+  end
+ 
+  def untrash
+    conversation.untrash(current_user)
+    redirect_to mailbox_inbox_path
+  end
+ 
+  private
+ 
+  def conversation_params
+    params.require(:conversation).permit(:subject, :body,recipients:[])
+  end
 
-	private
-
-	def conversation_params
-		params.permit(:sender_id, :recipient_id)
-	end
-
-	def interlocutor(conversation)
-		current_user == conversation.recipient ? conversation.sender : conversation.recipient
-	end
+  def message_params
+    params.require(:message).permit(:body, :subject)
+  end
 
 end

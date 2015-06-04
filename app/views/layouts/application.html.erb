@@ -3,6 +3,7 @@
 <head>
   <title>Hangsta</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=false' %>
@@ -29,6 +30,7 @@
             	<li><%= link_to "Hang Outs", events_path %></li>
               <li><%= link_to 'Hangstas', users_path %></li>
               <li><%= link_to 'Create A Hang Out', new_event_path %></li>
+              <li><%= link_to "Inbox", mailbox_inbox_path %></li>
             	<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             	
             	<% else %>
@@ -39,12 +41,12 @@
 
             </ul>
 
-            <% if flash[:notice] %>
-              <p id="notice1"><%= flash[:notice] if flash[:notice] %></p>
+            <% flash.each do |key, value| %>
+               <div class="text-center <%= flash_class(key) %>">
+                <%= value %>
+              </div>
             <% end %>
-            <% if flash[:alert] %>
-              <p id="alert1"><%= flash[:alert] if flash[:alert] %></p>
-            <% end %>
+
         </div>
     </div>
 </nav>

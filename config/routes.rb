@@ -14,8 +14,21 @@ Rails.application.routes.draw do
 
   get 'welcome/index', to: 'welcome#index'
 
-
   get 'users/:username', to: 'users#show', as: 'profile'
+
+    # mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+   # conversations
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   
   

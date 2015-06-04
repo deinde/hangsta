@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   	#instead of using followeds, we use following and use the source parameter to explicitly tell the rails that 
   	#the source of the following array is the set of followed ids
 
+  acts_as_messageable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -24,6 +25,14 @@ class User < ActiveRecord::Base
 
   # geocoded_by :full_street_address   # can also be an IP address
   # after_validation :geocode 
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
+
 
   def follow(event)
   	active_relationships.create(followed_id: event.id)
