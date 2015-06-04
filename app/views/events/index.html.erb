@@ -1,16 +1,29 @@
-<div id="posts-containter">
+
+<div class="container">
+
+    <div class="row">
+        <h1 id="title">
+         Hang Outs</h1>
+    </div>
+    <% @events.each do |event| %>
+  <!--   <div class="row"> -->
+    
+        <div class="col-sm-3">
+            <div class="card">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                    <%= image_tag event.user.avatar.url(:thumb), style: "DateUserName" %>
+                </div>
+                <div class="content">
+                    <h4><%= link_to event.title, event_path(event.id) %> </h4><br>
+                    <p>With <%= link_to event.user.username, profile_path(event.user.username) %></p>
+                    <p><button type="button" class="btn btn-default">Message</button></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+        
+
 
 	
-	<p>
-		<% @events.each do |event| %>
-			<%= image_tag event.user.avatar.url(:thumb)%>
-			<%= event.user.username %>:
-			<%= link_to event.title, event_path(event.id) %>
-			<br>
-			<br>
-		<% end %> 
-	</p> 
 
-
-<!-- <%= render @events %>  -->
-</div

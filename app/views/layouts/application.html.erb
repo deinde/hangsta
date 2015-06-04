@@ -26,13 +26,16 @@
             <ul class="nav navbar-nav">
             	<% if current_user %>
             	<li><%= link_to "Profile", profile_path(current_user.username) %></li>
-            	<li><%= link_to "Events", events_path %></li>
+            	<li><%= link_to "Hang Outs", events_path %></li>
+              <li><%= link_to 'Create A Hang Out', new_event_path %></li>
             	<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-            	<li><%= link_to 'Create Event', new_event_path %></li>
+            	
             	<% else %>
             	<li><%= link_to "Sign Up", new_user_registration_path %></li>
             	<li><%= link_to "Login", new_user_session_path %></li>
+
               <% end %>
+
             </ul>
 
             <% if flash[:notice] %>
@@ -50,6 +53,11 @@
 <main class="container-fluid main">
 <%= yield %>
 </main>
+
+<footer>
+  <h3 style="margin-left:1em">Hangster</h3>
+    
+</footer>
 
 </body>
 </html>
