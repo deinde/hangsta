@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.helpalife.in/assets/user_missing-ad724c0a61c25a5357cebaff10445f10.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   has_many :events
 
@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
 
   scope :newest_first, -> { order("users.created_at DESC")}
 
-  geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode 
+  # geocoded_by :full_street_address   # can also be an IP address
+  # after_validation :geocode 
 
   def follow(event)
   	active_relationships.create(followed_id: event.id)

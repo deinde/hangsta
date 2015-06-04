@@ -3,8 +3,12 @@
 
 <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
 	<div class="row panel">
-		 <div>
+		 <div id="LastEvent">
+         <% if @user.events.any? %>
 		 	<%= image_tag @user.events.last.image.url, class: "col-md-4 bg_blur "%>
+            <% else %>
+            <%= image_tag('https://artmuseumteaching.files.wordpress.com/2013/11/hang-out.jpeg', class: "col-md-4 bg_blur ") %>
+        <% end %>
     	    
 		</div>
         <div class="col-md-8  col-xs-12">
@@ -18,8 +22,8 @@
                 </span>
                 <br/>
                 <span id="editPro">
-	                <% if current_user %>
-						<%= link_to "Edit Profile", edit_user_registration_path %>
+	                <% if current_user == @user %>
+						<p id="MyEdit"><%= link_to "Edit Profile", edit_user_registration_path %></p>
 					<% end %>
 				</span>
            </div>
