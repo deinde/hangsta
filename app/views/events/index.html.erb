@@ -12,7 +12,7 @@
             <div class="card">
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">
-                    <%= image_tag event.user.avatar.url(:thumb), style: "DateUserName" %>
+                    <%= image_tag event.image.url(:thumb), style: "DateUserName" %>
                 </div>
                 <div class="content">
                     <h4><%= link_to event.title, event_path(event.id) %> </h4><br>

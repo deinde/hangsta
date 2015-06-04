@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
 
   scope :newest_first, -> { order("users.created_at DESC")}
 
+  geocoded_by :full_street_address   # can also be an IP address
+  after_validation :geocode 
+
   def follow(event)
   	active_relationships.create(followed_id: event.id)
   end

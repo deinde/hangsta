@@ -26,6 +26,7 @@
             	<% if current_user %>
             	<li><%= link_to "Profile", profile_path(current_user.username) %></li>
             	<li><%= link_to "Hang Outs", events_path %></li>
+              <li><%= link_to 'Hangstas', users_path %></li>
               <li><%= link_to 'Create A Hang Out', new_event_path %></li>
             	<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             	
@@ -50,7 +51,7 @@
 </main>
 
 <footer>
-  <h3 style="margin-left:1em">Hangster</h3>
+  <h3 style="margin-left:1em">Hangsta</h3>
     
 </footer>
 
