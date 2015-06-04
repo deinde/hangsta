@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all.newest_first
+    @user = User.find_by(username: params[:username])
   end
 
   def show

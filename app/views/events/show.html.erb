@@ -1,20 +1,29 @@
-<h1><%= @event.user.username.capitalize %>'s Event</h1>
-<div>
-	<p><%= @event.title %></p> <br>
-</div>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-
-<div>
-	<p><%= image_tag @event.image.url(:medium) %></p>
-	<p> Description: <%= @event.body %></p>
-	<p> Event Date: <%= @event.date %></p>
-	<p>This event has <%= @event.followers.count + 1 %> people participating</p>
-</div>
-
-<div>
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+	<div class="row panel">
+		 <div>
+		 	<%= image_tag @user.avatar.url, class: "col-md-4 bg_blur "%>
+		 	<h3><%= @user.username %></h3>
+    	    
+		</div>
+        <div class="col-md-8  col-xs-12">
+           <%= image_tag @event.image.url, class: "img-thumbnail picture hidden-xs" %>
+           <%= image_tag @event.image.url, class: "img-thumbnail visible-xs picture_mob" %>
+           <div class="header">
+           		<h5>Title:</h5>
+                <h2><%= @event.title %></h2>
+                <h4> Event Info:</h4>
+                <span>
+                	<%= @event.body %>
+                </span>
+                <br/>
+                <p>This event has <%= @event.followers.count + 1 %> people participating</p>
+                <div>
 	<p><% if @user.following?(@event) %>
 		<%= form_for(@user.active_relationships.find_by(followed_id: @event.id), html: {method: :delete}) do |f| %>
-			<%= f.submit "Cancle" %>
+			<%= f.submit "Unjoin" %>
  			<% end %>
  	   	<% else %>
  	   		<%=  form_for(@user.active_relationships.build) do |f|  %>
@@ -24,11 +33,52 @@
  		<% end %>
  	 </p>
 </div>
-
-<hr>
-
-<div>
- 	<p><%= image_tag @event.user.avatar.url(:thumb) %></p>
- 	<p><%= @event.user.username.capitalize%></p>
- 	
+                <span id="editPro">
+	                <% if current_user %>
+						<%= link_to "Edit Profile", edit_user_registration_path %>
+					<% end %>
+				</span>
+           </div>
+        </div>
+    </div>   
+    
 </div>
+
+<div class="container">
+
+    <div class="row">
+        <h1 id="title">
+         RSVPS</h1>
+    </div>
+    <% @event.followers.each do |follower| %>
+  <!--   <div class="row"> -->
+    
+        <div class="col-sm-3">
+            <div class="card">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                    <%= image_tag follower.avatar.url(:thumb), style: "DateUserName" %>
+                </div>
+                <div class="content">
+                    <h4><%= link_to follower.username, user_path(@user.username) %> </h4><br>
+                    
+                    <p><button type="button" class="btn btn-default">Message</button></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+
+
+<!-- 
+<div>
+	<p><%= image_tag @event.image.url(:medium) %></p>
+	<p> Description: <%= @event.body %></p>
+	<p> Event Date: <%= @event.date %></p>
+	<p>This event has <%= @event.followers.count + 1 %> people participating</p>
+	<% @event.followers.each do |follower| %>
+		<%= image_tag follower.avatar.url(:medium) %>
+		<%= follower.username %>
+	<%end%>
+</div> -->
+
