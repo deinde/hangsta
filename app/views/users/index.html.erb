@@ -1,5 +1,27 @@
-<% @users.each do |user| %>
-<p> <%= link_to user.username, profile_path(user.username) %> </p>
+<div class="container">
 
-<p><%= image_tag user.avatar.url(:thumb) %></p>
-<% end %>
+    <div class="row">
+        <h1 id="title">
+         Hangstas</h1>
+    </div>
+    <% @users.each do |user| %>
+    <div class="row">
+    
+        <div class="col-sm-3">
+            <div class="card">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                    <%= image_tag user.avatar.url(:thumb) %>
+                </div>
+                <div class="content">
+                    <p> <%= link_to user.username, profile_path(user.username) %> </p>
+                    <p><button type="button" class="btn btn-default">Message</button></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+
+
+
+<!-- <p><%# image_tag user.avatar.url(:thumb) %></p> -->

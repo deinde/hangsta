@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'     # redirecting the root page to devise page
   end
 
+  resources :location
 
   resources :users, except: [:show]
 
