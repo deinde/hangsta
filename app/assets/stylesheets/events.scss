@@ -3,6 +3,8 @@
 #title{
     color: #FF0061;
     text-align: center; 
+    font-family: Trebuchet MS;
+    text-shadow: 1px 1px #ff0000;
 }
 
 footer{
@@ -24,6 +26,10 @@ a:hover{
 .row{
 
 
+}
+
+#myEvent a{
+  color:black;
 }
 .card {
     margin-top: 1em;
@@ -64,8 +70,21 @@ a:hover{
   border: 5px solid rgba(0,0,30,0.8);
 }
 
-#NewEvent{
+#NewEventDiv{
   color:black;
+  width: 40%;
+  text-align: center;
+  margin:auto;
+  list-style-type: none;
+}
+#NewEventDiv li{
+  margin-top: 0.3em;
+}
+#NewEventForm{list-style-type: none;}
+
+#EventImage{
+  margin-left: 0.5em;
+
 }
 
 

@@ -1,10 +1,13 @@
+<div id="NewEventDiv">
 <h1 id="h1Tag">Create a Hang Out</h1>
-<div id="NewEvent">
+
 	<%= form_for Event.new do |f| %>
-        <%= f.file_field :image, placeholder: "Event Image" %>
-		<%= f.text_field :title, placeholder:"Event Name" %>
-		<%= f.text_field :body, placeholder: "Event Info" %>
-		<%= f.datetime_field :date, placeholder: "Date" %>
-		<%= f.submit "Post Event" %>
+		<ul id="NewEventForm">
+	        <li id="EventImage"><%= f.file_field :image, placeholder: "Event Image" %></li>
+			<li><%= f.text_field :title, placeholder:"Event Name" %></li>
+			<li><%= f.text_field :body, placeholder: "Event Info" %></li>
+			<li><%= f.datetime_field :date, placeholder: "Date" %></li>
+			<li><%= f.submit "Post Event" %></li>
+		</ul>
 	<% end %> 
 </div>

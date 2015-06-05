@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :events
 
   resources :relationships, only: [:create, :destroy]
