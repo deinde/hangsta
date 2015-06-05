@@ -4,17 +4,15 @@
 <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
 	<div class="row panel">
 		 <div>
-		 	<%= image_tag @user.avatar.url, class: "col-md-4 bg_blur "%>
-		 	<h3><%= @user.username %></h3>
+		 	<%= image_tag @event.user.avatar.url, class: "col-md-4 bg_blur "%>
+		 	<h2><%= link_to @event.user.username, user_path(@event.user.username) %></h2>    <!-- The font color turned white -->
     	    
 		</div>
         <div class="col-md-8  col-xs-12">
            <%= image_tag @event.image.url, class: "img-thumbnail picture hidden-xs" %>
-           <%= image_tag @event.image.url, class: "img-thumbnail visible-xs picture_mob" %>
+           <%= image_tag @event.image.url, class: "img-thumbnail visible-xs picture_mob" %>  <!--do we need this? -->
            <div class="header">
-           		<h5>Title:</h5>
                 <h2><%= @event.title %></h2>
-                <h4> Event Info:</h4>
                 <span>
                 	<%= @event.body %>
                 </span>
@@ -31,8 +29,13 @@
  			<%= f.submit "Join!" %>
  			<% end %>
  		<% end %>
+
+ 		<% if current_user == @event.user %>
+ 			<p id="myEvent"><%= link_to 'Edit Event', edit_event_path %></p>
+ 		<% end %>
  	 </p>
 </div>
+
                 <span id="editPro">
 	                <% if current_user %>
 						<%= link_to "Edit Profile", edit_user_registration_path %>
@@ -48,12 +51,14 @@
 
     <div class="row">
         <h1 id="title">
-         RSVPS</h1>
+         RSVPS
+     </h1>
     </div>
-    <% @event.followers.each do |follower| %>
+     
   <!--   <div class="row"> -->
     
         <div class="col-sm-3">
+            <% @event.followers.each do |follower| %>
             <div class="card">
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">

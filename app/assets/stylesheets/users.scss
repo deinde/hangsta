@@ -2,12 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
 
+background-color: #00C5FF;
+}
 #UserProfile {
 	border: 1px solid black;
 
 }
 
+
+
+#MyEdit a{
+    color: black;
+}
 #ProPic{
 		padding: 1em 1em;
 		float: left;
@@ -54,13 +65,7 @@
     border-bottom : 2px solid rgba(97, 203, 255, 0.65);
 }
 
-body {
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-font-size: 14px;
-line-height: 1.42857143;
 
-background-color: #FF6600;
-}
 
 
 
@@ -104,8 +109,8 @@ background-color: #FF6600;
 
 .header{
     color : #808080;
-    margin-left:10%;
     margin-top:70px;
+    text-align: center;
 }
 
 .picture{
