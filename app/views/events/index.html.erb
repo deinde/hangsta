@@ -15,9 +15,9 @@
                     <%= image_tag event.image.url(:thumb), style: "DateUserName" %>
                 </div>
                 <div class="content">
-                    <h4><%= link_to event.title, event_path(event.id) %> </h4><br>
-                    <p>With <%= link_to event.user.username, profile_path(event.user.username) %></p>
-                    <p><button type="button" class="btn btn-default">Message</button></p>
+                    <h4><%= link_to event.title.capitalize, event_path(event.id) %> </h4><br>
+                    <p>With <%= link_to event.user.username.capitalize, profile_path(event.user.username, :class => "btn btn-default") %></p>
+                   
                 </div>
             </div>
         </div>

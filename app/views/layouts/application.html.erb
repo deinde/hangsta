@@ -30,7 +30,14 @@
             	<li><%= link_to "Hang Outs", events_path %></li>
               <li><%= link_to 'Hangstas', users_path %></li>
               <li><%= link_to 'Create A Hang Out', new_event_path %></li>
-              <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+
+              <% if unread_messages_count == 0 %>
+                <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+              <% else %>
+                <li><%= link_to "Inbox - #{unread_messages_count}", mailbox_inbox_path %></li>
+              <% end %>
+
+
             	<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             	
             	<% else %>
