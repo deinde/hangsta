@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.all
+		@users = User.where.not("id = ?",current_user.id).order("created_at DESC")
+		# @users = User.all
 	end 
 
 	private
