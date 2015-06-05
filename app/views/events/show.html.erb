@@ -47,6 +47,38 @@
     
 </div>
 
+<h1 id="myMapsHeader"><%= @event.address %></h1>
+<div id="myMap" style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+  <%# render 'event' %>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+        provider: {
+          disableDefaultUI: true
+          // pass in other Google Maps API options here
+        },
+        internal: {
+          id: 'map'
+        }
+      },
+      function(){
+        markers = handler.addMarkers([
+          {
+            "lat": <%= @event.latitude %>,
+            "lng": <%= @event.longitude %>,
+            "infowindow": "<%= @event.title %>"
+          }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      }
+    );
+
+</script>
+
 <div class="container">
 
     <div class="row">
@@ -72,18 +104,4 @@
             </div>
         </div>
     <% end %>
-
-
-
-<!-- 
-<div>
-	<p><%= image_tag @event.image.url(:medium) %></p>
-	<p> Description: <%= @event.body %></p>
-	<p> Event Date: <%= @event.date %></p>
-	<p>This event has <%= @event.followers.count + 1 %> people participating</p>
-	<% @event.followers.each do |follower| %>
-		<%= image_tag follower.avatar.url(:medium) %>
-		<%= follower.username %>
-	<%end%>
-</div> -->
 
