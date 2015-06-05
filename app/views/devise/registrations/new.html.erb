@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+
+<div class="jumbotron col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+<h2 class="h2">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
@@ -41,8 +44,9 @@
   </div>
 <% end %>
 <video width="400" autoplay loop id="bgvid">
-<source src="/assets/javajam.webm" type="video/webm">
+<source src="/assets/hanging.webm" type="video/webm">
 
 </video>
+</div>
 
 <!--<%= render "devise/shared/links" %>-->
