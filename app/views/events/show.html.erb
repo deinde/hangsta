@@ -12,9 +12,7 @@
            <%= image_tag @event.image.url, class: "img-thumbnail picture hidden-xs" %>
            <%= image_tag @event.image.url, class: "img-thumbnail visible-xs picture_mob" %>  <!--do we need this? -->
            <div class="header">
-           		<h5>Title:</h5>
                 <h2><%= @event.title %></h2>
-                <h4> Event Info:</h4>
                 <span>
                 	<%= @event.body %>
                 </span>
@@ -31,14 +29,18 @@
  			<%= f.submit "Join!" %>
  			<% end %>
  		<% end %>
- 		
+
+ 		<% if current_user == @event.user %>
+ 			<p id="myEvent"><%= link_to 'Edit Event', edit_event_path %></p>
+ 		<% end %>
  	 </p>
 </div>
+
                 <span id="editPro">
-                    <% if current_user %>
-    					<%= link_to "Edit Profile", edit_user_registration_path %>
-    				<% end %>
-    			</span>
+	                <% if current_user %>
+						<%= link_to "Edit Profile", edit_user_registration_path %>
+					<% end %>
+				</span>
            </div>
         </div>
     </div>   
