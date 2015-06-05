@@ -5,42 +5,48 @@
 	<div class="row panel">
 		 <div>
 		 	<%= image_tag @event.user.avatar.url, class: "col-md-4 bg_blur "%>
-		 	<h2><%= link_to @event.user.username, user_path(@event.user.username) %></h2>    <!-- The font color turned white -->
+		 	<h2><%= link_to @event.user.username.capitalize, user_path(@event.user.username), class: "user-name" %></h2>    <!-- The font color turned white -->
     	    
 		</div>
         <div class="col-md-8  col-xs-12">
            <%= image_tag @event.image.url, class: "img-thumbnail picture hidden-xs" %>
            <%= image_tag @event.image.url, class: "img-thumbnail visible-xs picture_mob" %>  <!--do we need this? -->
            <div class="header">
-                <h2><%= @event.title %></h2>
+                <h2><%= @event.title.capitalize %></h2>
                 <span>
-                	<%= @event.body %>
+                	<%= @event.body.capitalize %>
                 </span>
                 <br/>
-                <p>This event has <%= @event.followers.count + 1 %> people participating</p>
+
+                <p>This event has <span class= "people-count">
+                    <% if @event.followers.count + 1 == 1 %>
+                        <%= "1 hangsta" %>
+                    <% else %>
+                        <%= "#{@event.followers.count + 1} hangstas" %>
+                    <% end %>
+                </span> participating
+                </p>
+
                 <div>
-	<p><% if @user.following?(@event) %>
-		<%= form_for(@user.active_relationships.find_by(followed_id: @event.id), html: {method: :delete}) do |f| %>
-			<%= f.submit "Unjoin" %>
- 			<% end %>
- 	   	<% else %>
- 	   		<%=  form_for(@user.active_relationships.build) do |f|  %>
- 			<div><%= hidden_field_tag :followed_id, @event.id %></div>
- 			<%= f.submit "Join!" %>
- 			<% end %>
- 		<% end %>
+	   <p><% if @user.following?(@event) %>
+    		<%= form_for(@user.active_relationships.find_by(followed_id: @event.id), html: {method: :delete}) do |f| %>
+    			<%= f.submit "Cancel", class: "btn btn-danger" %>
+     			<% end %>
+     	   	<% else %>
+     	   		<%=  form_for(@user.active_relationships.build) do |f|  %>
+     			<div><%= hidden_field_tag :followed_id, @event.id %></div>
+     			<%= f.submit "Join!", class: "btn btn-success" %>
+     			<% end %>
+     		<% end %>
+        </p>
 
  		<% if current_user == @event.user %>
- 			<p id="myEvent"><%= link_to 'Edit Event', edit_event_path %></p>
+ 			<p><button type="button" class="btn btn-success"><%= link_to 'Edit Event', edit_event_path %></button></p>
  		<% end %>
- 	 </p>
+ 	        </p>
 </div>
 
-                <span id="editPro">
-	                <% if current_user %>
-						<%= link_to "Edit Profile", edit_user_registration_path %>
-					<% end %>
-				</span>
+                
            </div>
         </div>
     </div>   
@@ -72,7 +78,6 @@
             </div>
         </div>
     <% end %>
-
 
 
 <!-- 
