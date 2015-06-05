@@ -2,6 +2,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.newest_first
     @user = User.find_by(username: params[:username])
+    # @place = Place.new
+    @hash = Gmaps4rails.build_markers(Event.all) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow event.body
+    end
   end
 
   def show
@@ -11,6 +17,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    # if @event.save
+    #   redirect_to events_path
+    # else
+    #   render :index
+    # end
   end
 
   def create
@@ -50,7 +61,7 @@ class EventsController < ApplicationController
 
   def event_params
 
-    params.require(:event).permit(:body, :title, :date, :image, :user_id).merge(user: current_user)
+    params.require(:event).permit(:body, :title, :date, :image, :user_id, :address, :latitude, :longitude).merge(user: current_user)
 
   end
 

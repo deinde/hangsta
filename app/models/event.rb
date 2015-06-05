@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
+	validates :title, presence: true
+	
 
 	has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 		# Event has passive_relationships because it doesn't have to follow back users
@@ -9,5 +11,8 @@ class Event < ActiveRecord::Base
   	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 	scope :newest_first, -> { order("events.created_at DESC")}
+
+	geocoded_by :address
+	after_validation :geocode
 
 end
