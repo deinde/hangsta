@@ -1,5 +1,5 @@
 body{
-  background-color:#e0d9d8!important;
+  background-color:#BCE6FF!important;
 }
 
 .jumbotron {
@@ -132,7 +132,7 @@ body{
 
 .navbar{
 	margin-bottom:0px;
-  background-color: orange;
+  background-color: none;
   text-shadow: 1px 1px #ff0000;
 }
 
@@ -141,7 +141,10 @@ body{
 }
 .text-center{
 	margin:0px;
-	padding-top:209px;
+	padding-top:1em;
+  color: aqua;
+  background-color: transparent;
+  border-color: tranparent;
 }
 
 ///////////////////////////form//////////////////////

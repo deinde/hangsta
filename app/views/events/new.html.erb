@@ -6,8 +6,19 @@
 	        <li id="EventImage"><%= f.file_field :image, placeholder: "Event Image" %></li>
 			<li><%= f.text_field :title, placeholder:"Event Name" %></li>
 			<li><%= f.text_field :body, placeholder: "Event Info" %></li>
+			<%= f.text_field :address, placeholder: "Address" %></br>
 			<li><%= f.datetime_field :date, placeholder: "Date" %></li>
 			<li><%= f.submit "Post Event" %></li>
 		</ul>
 	<% end %> 
 </div>
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'} }, 
+		function(){
+			markers = handler.addMarkers(<%= raw @hash.to_json %>);
+			handler.bounds.extendWith(markers);
+			handler.fitMapToBounds();
+		});
+</script>
