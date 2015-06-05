@@ -1,6 +1,6 @@
 
 
-#title{
+#title, #h1Tag{
     color: #FF0061;
     text-align: center; 
     font-family: Trebuchet MS;
@@ -11,7 +11,7 @@ footer{
   color:white;
 }
 #h1Tag{
-  color:white;
+  
 }
 a{
     color: white;
@@ -76,11 +76,19 @@ a:hover{
   text-align: center;
   margin:auto;
   list-style-type: none;
+
+
 }
 #NewEventDiv li{
   margin-top: 0.3em;
 }
-#NewEventForm{list-style-type: none;}
+#NewEventForm{
+  list-style-type: none;
+  background-color: orange;
+  border-radius: 4em;
+  padding: 2em 2em;
+}
+
 
 #EventImage{
   margin-left: 0.5em;
@@ -238,4 +246,8 @@ background-color: #69E5EA
 
 #editPro a:hover{
   color:black;
+}
+
+#MyContent{
+  color: white;
 }
