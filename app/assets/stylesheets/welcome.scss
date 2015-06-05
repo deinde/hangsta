@@ -1,11 +1,16 @@
+body{
+  background-color:#e0d9d8!important;
+}
+
 .jumbotron {
   
    
-    height: 400px;
+    // height: 400px;
     background-size: cover;
-    background-color: red;
-    background-color: rgba(224, 224, 224, 0.5);
-    
+    background-color: #fff;
+    background-color: rgba(50, 50, 50, 0.6);
+    padding-bottom: 340px;
+    margin-bottom: 0px;
 }
 
 .pi{
@@ -32,8 +37,8 @@
 .org2{
 	
 	height:500px;
-	background-color:orange;
-	opacity: 0.5;
+	background-color:green;
+	// opacity: 0.5;
 	background-image: url('http://drivenhealthy.com/wp-content/uploads/2013/07/Frustration.jpg');
   background-size:100% 100%;
   background-repeat: no-repeat;
@@ -51,7 +56,7 @@
 .pnk{
 	height:500px;
 	background-color:pink;
-	opacity: 0.5;
+	// opacity: 0.5;
 	background-image: url('https://blog.ironpeakadvisors.com/wp-content/uploads/2015/04/photodune-7398589-group-of-teenagers-hanging-out-m.jpg');
 	background-size:100% 100%;
 	button{
@@ -64,39 +69,39 @@
 		font-size:4em;
 		}
     .button{
-      
+      padding-top:20px;
     }
 }
 
 
 
 
-.welcome {
-	width:50%;
-	height:250px;
-	background-color:orange;
+// .welcome {
+// 	width:50%;
+// 	height:250px;
+// 	background-color:orange;
 
-	background-image: url('https://blog.ironpeakadvisors.com/wp-content/uploads/2015/04/photodune-7398589-group-of-teenagers-hanging-out-m.jpg');
-	background-size:cover;
-}
+// 	background-image: url('https://blog.ironpeakadvisors.com/wp-content/uploads/2015/04/photodune-7398589-group-of-teenagers-hanging-out-m.jpg');
+// 	background-size:cover;
+// }
 
-.welcome3{
-background:url("https://blog.ironpeakadvisors.com/wp-content/uploads/2015/04/photodune-7398589-group-of-teenagers-hanging-out-m.jpg") no-repeat center top scroll;
-background-size: 100% auto;
-padding-bottom: 50%;
-}
-.welcome4{
-background:url("http://drivenhealthy.com/wp-content/uploads/2013/07/Frustration.jpg") no-repeat center top scroll;
-background-size: 100% auto;
-padding-bottom: 50%;
-}
-.welcome2 {
-  width:50%;
-	height:250px;
-	background-color:orange;
-	background-image: url('http://drivenhealthy.com/wp-content/uploads/2013/07/Frustration.jpg');
-  background-size:cover;
-}
+// .welcome3{
+// background:url("https://blog.ironpeakadvisors.com/wp-content/uploads/2015/04/photodune-7398589-group-of-teenagers-hanging-out-m.jpg") no-repeat center top scroll;
+// background-size: 100% auto;
+// padding-bottom: 50%;
+// }
+// .welcome4{
+// background:url("http://drivenhealthy.com/wp-content/uploads/2013/07/Frustration.jpg") no-repeat center top scroll;
+// background-size: 100% auto;
+// padding-bottom: 50%;
+// }
+// .welcome2 {
+//   width:50%;
+// 	height:250px;
+// 	background-color:orange;
+// 	background-image: url('http://drivenhealthy.com/wp-content/uploads/2013/07/Frustration.jpg');
+//   background-size:cover;
+// }
 .welcome-about{
 	
 	height:500px;
@@ -215,17 +220,26 @@ background-size: cover;
 form#new_user {
   width:33%;
   margin: 0 auto;
-
+  margin-bottom:10%;
+  padding:30px;
   radious: 10px;
   border-radius: 19px;
-  padding: 43px;
+  // padding: 43px;
   rgba: 12 34 56 45;
   
   
 }
-h2#h2{
+h2.h2{
     padding-left:34%;
   }
+
+
+
+button.btn.btn-danger{
+      margin-left: 41%;
+      margin-top: 5%;
+    }
+
 
 
 @media all and (max-width: 960px){
@@ -251,6 +265,14 @@ h2#h2{
       
     }
 
+    button.btn.btn-danger{
+      margin-left: 30%;
+    }
+
+    img.img-responsive {
+    padding-left: 28%;
+}
+
 
 }
 
@@ -275,7 +297,65 @@ input, button, select, textarea {
     }
 
 
+
+   
+
+
 }
+//////navbar header/////
+@media all and (max-width: 430px){
+  body{
+    max-width: 430px;
+  }
+.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+  // background-color:#fa5d52;
+  p {
+  /* width: 1247px; */
+  width: auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 57px;
+  margin: 0px 32px;
+  overflow-x: hidden;
+}
+ h2.h2{
+    padding-left:14%;
+  }
+}
+
+
+
+
+.navbar-header{
+  width:100%;
+ 
+}
+
+.clr-green{
+  height:auto;
+  background-color: rgba(0, 0, 0, 0.4); 
+  color: #ffff;
+    p {
+  /* width: 1247px; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 50px;
+}
+  
+}
+
+}
+
+
+
+
 
 
 
@@ -313,21 +393,22 @@ input, button, select, textarea {
    display: block; margin-left: auto; margin-right: auto;
 }
 h1.text-center {
-  padding-top: 71px;
+  // padding-top: 71px;
   color: white;
 }
 h2.text-center {
   padding-top: 20px;
   color: white;
 }
-
-.navbar-nav > li > a {
+.navbar {
+  background-color: #fa5d52;
+  width:101%;
+  .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
   color: #fff;
 }
-
 .navbar-brand {
   float: left;
   padding: 2px 15px;
@@ -337,5 +418,53 @@ h2.text-center {
 }
 
 
+}
 
+.g-grid {
+  width:101%;
+  height: 50px;
+  background-color:#fa5d52;
+  padding:0px;
+  margin:0px;
+}
 
+.container-fluid{
+  padding:0px;
+}
+h2.h2 {
+  padding-left: 34%;
+  color: #fff;
+}
+// #welcome-row{
+//   height:500px;
+//   background-color:#9dd6b3;
+// }
+.clr-green{
+  height:auto;
+  background-color: rgba(0, 0, 0, 0.4); 
+  color: #ffff;
+    p {
+  /* width: 1247px; */
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 57px;
+}
+  
+}
+.icon-bar{
+  background:#fff;
+  padding-right:5px;
+}
+
+.navbar-btn {
+  background-color: #fa5d52;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+button.btn.btn-danger{
+  width:200px;
+}
