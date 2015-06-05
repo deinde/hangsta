@@ -2,14 +2,15 @@
 
 
 <div class="jumbotron col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <img class="img-responsive"src="/assets/hangsta3.svg" alt=""></a>
+   
  <div class="row">
  
   <h2 class="text-center">an awesome way to meet people</h2>
-  <button type="button" class="btn btn-danger ">Action</button>
+
+  <button id="boot" type="button" class="btn btn-danger "><%= link_to "Sign Up", new_user_registration_path %></button>
 </div>
 </div>
-<div  id="welcome-row" class="row">
+ <div  id="welcome-row" class="row">
   <h2 class="h2">Sign in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -33,8 +34,8 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-</div>
-<div class="row clr-green">
+</div> 
+<!-- <div class="row clr-green">
  <div class="col-xs-12">
   <h2 class="h2">hang out your way!</h2>
     <p class="" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -46,10 +47,9 @@
  </div> 
 </div>
 <div >
-</div>
+</div>--> 
 <video width="400" autoplay loop id="bgvid">
 <source src="/assets/hanging.webm" type="video/webm">
-
 </video>
 
 
